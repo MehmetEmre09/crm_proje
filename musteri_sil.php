@@ -1,12 +1,10 @@
 <?php
-require 'db.php';
-
+include 'db.php';
 $id = $_GET['id'] ?? null;
-
-if ($id) {
+if($id){
     $stmt = $pdo->prepare("DELETE FROM musteri WHERE id = ?");
     $stmt->execute([$id]);
 }
-
 header("Location: musteri_list.php");
 exit;
+?>
